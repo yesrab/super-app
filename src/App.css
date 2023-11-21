@@ -1,8 +1,145 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  margin: 0;
+  height: 100%;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  font-family: "DM Sans", sans-serif;
+}
+
+.signupPage {
+  display: flex;
+  height: 100%;
+  justify-content: normal;
+}
+.signupPage > img {
+  width: 50vw;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.formWindow {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  background-color: black;
+}
+.formWindow h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 1em;
+  color: white;
+  /* color: white; */
+}
+.acc {
+  color: white;
+  text-align: center;
+  margin: 0;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
+}
+.formWindow h4 {
+  font-weight: 100;
+}
+
+.formWindow h1 {
+  font-family: "Single Day", cursive;
+  color: hsla(121, 59%, 65%, 1);
+  margin-top: 1%;
+  font-size: 67px;
+}
+.formWindow form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+.inputContainer {
+  width: 70%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.formWindow form input {
+  display: block;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  width: 90%;
+  height: 50%;
+  background-color: hsla(0, 0%, 16%, 1);
+  color: white;
+}
+
+.formWindow form input::placeholder {
+  color: hsla(0, 0%, 49%, 1);
+}
+
+.formWindow form button {
+  background-color: hsla(121, 59%, 65%, 1);
+  color: white;
+  width: 40%;
+  height: 10%;
+  margin: 0.6em;
+  padding: 0;
+  border: none;
+  border-radius: 2em;
+  font-weight: 400;
+  font-size: large;
+}
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: flex-start;
+}
+
+.checkboxContainer input {
+  width: auto !important;
+  margin-right: 1%;
+}
+.errorMessage {
+  display: none;
+  color: red;
+  text-align: start;
+  align-self: flex-start;
+  margin-left: 2em;
+}
+
+.Terms {
+  margin: 0.7em;
+  font-size: 0.8em;
+  width: 70%;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+.Terms p {
+  margin: 0;
+}
+/* 
 .formWindow {
   display: flex;
   justify-content: center;
@@ -20,4 +157,5 @@
 .formWindow input:invalid ~ span {
   display: block;
 }
+ */
 

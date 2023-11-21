@@ -1,92 +1,49 @@
 import React, { useState } from "react";
-import FormElements from "./FormElements";
+
 function Form() {
-  const [values, setValues] = useState({
-    FullName: "",
-    username: "",
-    email: "",
-    MobileNumber: "",
-    conditions: false,
-  });
-
-  const inputs = [
-    {
-      id: 1,
-      name: "FullName",
-      type: "text",
-      placeholder: "Full Name",
-      errorMessage: "name should only contain alphabets",
-      label: "Full Name",
-      required: true,
-    },
-
-    {
-      id: 2,
-      name: "username",
-      type: "text",
-      placeholder: "Username",
-      errorMessage:
-        "Username can only have A-z uppercase and lowercase, 0-9 numbers and only be one word.",
-      label: "Username",
-      pattern: "[A-Za-z0-9]+",
-      required: true,
-    },
-
-    {
-      id: 3,
-      name: "email",
-      type: "email",
-      placeholder: "Email",
-      errorMessage: "It should be a valid email address!",
-      label: "Email",
-      required: true,
-    },
-    {
-      id: 4,
-      name: "MobileNumber",
-      type: "tel",
-      placeholder: "Mobile",
-      errorMessage: "Your Phone number is required",
-      label: "Mobile",
-
-      required: true,
-    },
-    {
-      id: 5,
-      name: "conditions",
-      type: "checkbox",
-      errorMessage: "Please accept the Terms & Conditions to move forward",
-      label: "T&C",
-      required: true,
-    },
-  ];
-
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target);
-    console.log(values);
-  };
-
-  const onChange = (e) => {
-    const { name, type, checked, value } = e.target;
-    if (type === "checkbox") {
-      setValues({ ...values, [name]: checked });
-    } else {
-      setValues({ ...values, [name]: value });
-    }
-    // setValues({ ...values, [e.target.name]: e.target.value });
-  };
+  }
 
   return (
-    <div className='app'>
+    <div className='formWindow'>
+      <h1>Super App</h1>
+      <p className='acc'>Create your new account</p>
       <form onSubmit={handleSubmit}>
-        <h1>Super App</h1>
-        <p>Create your account</p>
-        {inputs.map((input) => (
-          <FormElements key={input.id} {...input} value={values[input.name]} onChange={onChange} />
-        ))}
-        <button>Submit</button>
+        <div className='inputContainer'>
+          <input name='FullName' type='text' placeholder='Name' />
+          <label className='errorMessage'>Field is required</label>
+        </div>
+        <div className='inputContainer'>
+          <input name='username' type='text' placeholder='UserName' />
+          <label className='errorMessage'>Field is required</label>
+        </div>
+        <div className='inputContainer'>
+          <input name='email' type='text' placeholder='Email' />
+          <label className='errorMessage'>Field is required</label>
+        </div>
+        <div className='inputContainer'>
+          <input name='number' type='number' placeholder='Mobile' />
+          <label className='errorMessage'>Field is required</label>
+        </div>
+
+        <div className='inputContainer'>
+          <div className='checkboxContainer'>
+            <input id='T&C' name='T&C' type='checkbox' />
+            <label htmlFor='T&C'>Share my registration data with Superapp</label>
+          </div>
+          <label className='errorMessage'>Check this box if you want to proceed</label>
+        </div>
+        <button>SIGN UP</button>
       </form>
+      <div className='Terms'>
+        <p>By clicking on Sign up. you agree to Superapp Terms and Conditions of Use</p>
+        <br />
+        <p>
+          To learn more about how Superapp collects, uses, shares and protects your personal data
+          please head Superapp Privacy Policy
+        </p>
+      </div>
     </div>
   );
 }
