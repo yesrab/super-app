@@ -1,0 +1,23 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.formWindow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formWindow input {
+  display: block;
+}
+
+.formWindow span {
+  display: none;
+  color: red;
+  font-size: 12px;
+}
+.formWindow input:invalid ~ span {
+  display: block;
+}
+
