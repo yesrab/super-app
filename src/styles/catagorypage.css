@@ -1,0 +1,156 @@
+.catagoryContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.enclosure {
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+}
+.selections {
+  color: white;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 40%;
+  height: 100%;
+}
+.selections h1:first-child {
+  color: hsla(121, 59%, 65%, 1);
+  font-family: "Single Day", cursive;
+  font-size: 46px;
+}
+.selections h1:nth-child(2n) {
+  padding-left: 3vw;
+  font-size: 46px;
+}
+.selectedOptions {
+  display: flex;
+  align-content: flex-start;
+  padding-left: 10%;
+  flex-direction: row;
+  width: 110%;
+  height: 30%;
+  flex-wrap: wrap;
+}
+.selectedOptions > span {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  background-color: hsla(114, 89%, 29%, 1);
+  margin: 2%;
+  height: 4ch;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  border-radius: 1em;
+  padding-left: 3%;
+}
+.selectedOptions > span > button {
+  background-color: inherit;
+  color: hsla(114, 100%, 18%, 1);
+  border: none;
+  cursor: pointer;
+}
+.catagoryWarnign {
+  color: red;
+  display: flex;
+  align-items: center;
+  font-size: small;
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: 22%;
+}
+.material-symbols-outlined {
+  padding-bottom: 2%;
+  padding-right: 1%;
+  font-variation-settings: "FILL" 100, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.options {
+  height: 100%;
+  width: 60%;
+  color: white;
+  background-color: black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1em;
+  /* align-items: flex-start; */
+  align-content: center;
+}
+.catagoryElement {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 10vw;
+  border: 2px solid wheat;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+}
+.catagoryElement h4 {
+  width: 100%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+.catagoryElement img {
+  width: 70%;
+  height: 6vw;
+  margin: 1em;
+}
+
+.nextPageFooter {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 10%;
+  background-color: black;
+}
+
+.nextPageFooter > button {
+  margin: 5em;
+  color: white;
+  background-color: hsla(114, 89%, 29%, 1);
+  border-radius: 2em;
+  border: none;
+  width: 10%;
+  height: 60%;
+}
+
+.Action {
+  background-color: hsla(18, 100%, 52%, 1);
+}
+.Drama {
+  background-color: hsla(274, 100%, 82%, 1);
+}
+
+.Romance {
+  background-color: hsl(114, 89%, 29%);
+}
+.Thriller {
+  background-color: hsla(210, 100%, 76%, 1);
+}
+.Western {
+  background-color: hsla(15, 100%, 28%, 1);
+}
+.Horror {
+  background-color: hsla(250, 100%, 67%, 1);
+}
+.Fantacy {
+  background-color: hsla(311, 100%, 64%, 1);
+}
+.Music {
+  background-color: hsla(354, 80%, 51%, 1);
+}
+.Fiction {
+  background-color: hsla(114, 54%, 60%, 1);
+}

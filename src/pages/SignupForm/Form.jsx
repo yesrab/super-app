@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const validations = {
@@ -20,12 +20,11 @@ const validations = {
 };
 
 function Form() {
-  const [errors, setErrors] = useState({});
   const nav = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     let valid = true;
-    const form = document.getElementById("bektor");
+    const form = document.getElementById("signUpform");
     for (const [n, f] of Object.entries(validations)) {
       const v = form[n];
       const xxx = document.getElementById(n);
@@ -37,7 +36,11 @@ function Form() {
       }
     }
     if (valid) {
-      nav("bektor");
+      const formData = new FormData(e.currentTarget);
+      const userData = Object.fromEntries(formData);
+      console.log(userData);
+      localStorage.setItem("userdata", JSON.stringify(userData));
+      nav("catagory");
     }
   }
 
@@ -45,7 +48,7 @@ function Form() {
     <div className='formWindow'>
       <h1>Super App</h1>
       <p className='acc'>Create your new account</p>
-      <form id='bektor' onSubmit={handleSubmit}>
+      <form id='signUpform' onSubmit={handleSubmit}>
         <div className='inputContainer'>
           <input name='fullname' type='text' placeholder='Name' />
           <label id='fullname' className='errorMessage'>

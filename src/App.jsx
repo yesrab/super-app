@@ -6,12 +6,12 @@ import {
   Route,
 } from "react-router-dom";
 import Signup from "./pages/Signup";
-import UserPage from "./pages/UserPage";
+import SelectCatagory from "./pages/SelectCatagory";
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/'>
       <Route index element={<Signup />} />
-      <Route path='bektor' element={<UserPage />} />
+      <Route path='catagory' element={<SelectCatagory />} />
     </Route>
   )
 );

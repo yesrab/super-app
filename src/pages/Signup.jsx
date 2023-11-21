@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Form from "./SignupForm/Form";
-import partyImage from "../assets/PartyImage.svg";
+import partyImage from "../assets/PartyImage.jpg";
 
 function Signup() {
   return (
