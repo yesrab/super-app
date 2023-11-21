@@ -92,6 +92,7 @@ body {
   height: 50%;
   background-color: hsla(0, 0%, 16%, 1);
   color: white;
+  border: none;
 }
 
 .formWindow form input::placeholder {
@@ -118,10 +119,15 @@ body {
 }
 
 .checkboxContainer input {
-  width: auto !important;
+  width: 10% !important;
   margin-right: 1%;
 }
+.checkboxLable {
+  color: hsla(0, 0%, 49%, 1);
+  font-size: 13px;
+}
 .errorMessage {
+  font-size: 10px;
   display: none;
   color: red;
   text-align: start;
@@ -138,24 +144,9 @@ body {
 }
 .Terms p {
   margin: 0;
+  display: inline;
 }
-/* 
-.formWindow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.green {
+  color: hsla(121, 59%, 65%, 1);
 }
-.formWindow input {
-  display: block;
-}
-
-.formWindow span {
-  display: none;
-  color: red;
-  font-size: 12px;
-}
-.formWindow input:invalid ~ span {
-  display: block;
-}
- */
 
