@@ -27,7 +27,7 @@ function Userinfo() {
       <div className='userInfoDetails'>
         <p>{userInfo.fullname}</p>
         <p>{userInfo.email}</p>
-        <h2>{userInfo.email}</h2>
+        <h2>{userInfo.username}</h2>
         <div className='genreContainer'>
           {selectedCatagory.map((genre) => (
             <div key={genre} className='genres'>
