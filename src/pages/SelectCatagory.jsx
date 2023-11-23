@@ -4,7 +4,7 @@ import catagoryObj from "../libs/catagorySelectionData";
 import { useNavigate } from "react-router-dom";
 function SelectCatagory() {
   const nav = useNavigate();
-  const [catagories, setCatagories] = useState(["Romance", "Music", "Action", "Drama", "Thriller"]);
+  const [catagories, setCatagories] = useState(["Romance", "Music", "Action"]);
   const removeCatagory = (catagory) => {
     const updatedCatagory = catagories.filter((item) => item !== catagory);
     setCatagories(updatedCatagory);
@@ -22,8 +22,7 @@ function SelectCatagory() {
   const toDashboard = () => {
     if (catagories.length >= 3) {
       localStorage.setItem("usercatagory", JSON.stringify(catagories));
-
-      nav("dashboard");
+      nav("../dashboard");
     } else {
       return;
     }
@@ -84,11 +83,14 @@ function SelectCatagory() {
         <div className='options'>
           {catagoryObj.map((obj) => (
             <div
+              tabIndex={0}
               onClick={() => {
                 handelCatagoryToggle(obj.title);
               }}
               key={obj.id}
-              className={`catagoryElement   ${obj.title} `}>
+              className={`catagoryElement ${obj.title} ${
+                catagories.includes(obj.title) ? "selected" : ""
+              } `}>
               <h4>{obj.title}</h4>
               <img src={obj.image} />
             </div>

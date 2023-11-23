@@ -90,10 +90,13 @@
   flex-direction: column;
   width: 25%;
   height: 10vw;
-  border: 2px solid wheat;
+  border: 3px solid whitesmoke;
   justify-content: center;
   align-items: center;
   border-radius: 1em;
+}
+.selected {
+  border: 3px solid hsla(114, 100%, 36%, 1);
 }
 .catagoryElement h4 {
   width: 100%;
