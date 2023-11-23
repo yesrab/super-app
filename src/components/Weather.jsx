@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../styles/weather.css";
 const key = import.meta.env.VITE_WEATHER_API_KEY;
 const URL = `https://api.weatherapi.com/v1/current.json?key=${key}`;
-
 import preassureImg from "../assets/weather/pressure.svg";
 import windImg from "../assets/weather/wind.svg";
 import humidityImg from "../assets/weather/humidity.svg";
@@ -15,33 +14,37 @@ function Weather() {
       icon: "//cdn.weatherapi.com/weather/64x64/day/116.png",
       code: "1003",
     },
-    temp_c: "27.0",
+    temp_c: "69.0",
     pressure_mb: "1009.0",
     wind_kph: "15.1",
-    humidity: "89",
+    humidity: "69",
   });
 
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
     const successCallback = (position) => {
-      // console.log(possition);
       setLocation(`&q=${position.coords.latitude},${position.coords.longitude}&aqi=no`);
-      // console.log(location);
-      // console.log(URL + location);
     };
     const errorCallback = (error) => {
       console.log(error);
     };
-
-    const getWeather = async (coOrdinates) => {
-      const location = `&q=${coOrdinates.coords.latitude},${coOrdinates.coords.longitude}&aqi=no`;
-      // console.log(URL + location);
-      const responce = await fetch(URL + location, { signal });
-      const data = await responce.json();
-      console.log(data);
-    };
     try {
+      const getWeather = async (coOrdinates) => {
+        const location = `&q=${coOrdinates.coords.latitude},${coOrdinates.coords.longitude}&aqi=no`;
+        // console.log(URL + location);
+        const responce = await fetch(URL + location, { signal });
+        const data = await responce.json();
+        setWeather({
+          localtime: data.location.localtime,
+          condition: data.current.condition,
+          temp_c: data.current.temp_c,
+          pressure_mb: data.current.pressure_mb,
+          wind_kph: data.current.wind_kph,
+          humidity: data.current.humidity,
+        });
+      };
+
       navigator.geolocation.getCurrentPosition(getWeather, errorCallback);
     } catch (err) {
       console.log(err);
@@ -59,6 +62,7 @@ function Weather() {
           <img src={weather.condition.icon} />
           <p>{weather.condition.text}</p>
         </div>
+        <div className='seperator'></div>
         <div className='currentTemp'>
           <h1>{parseInt(weather.temp_c)}°C</h1>
           <div className='subwindows'>
@@ -69,6 +73,7 @@ function Weather() {
             </div>
           </div>
         </div>
+        <div className='seperator'></div>
         <div className='currentWind'>
           <div className='subwindows'>
             <img src={windImg} />

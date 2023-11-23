@@ -49,7 +49,11 @@
   align-content: center;
   justify-content: space-evenly;
 }
-
+.seperator {
+  height: 50%;
+  width: 1px;
+  background-color: white;
+}
 .currentTemp h1 {
   margin: 0;
 }
