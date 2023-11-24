@@ -5,6 +5,7 @@
   border-radius: 1em;
   display: flex;
   flex-direction: column;
+  font-family: "Roboto", sans-serif;
 }
 .dateNtime {
   background-color: hsla(311, 100%, 64%, 1);
@@ -28,9 +29,12 @@
   color: white;
 }
 .currentWeather {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
 }
 .currentTemp {
   display: flex;
