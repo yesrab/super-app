@@ -41,7 +41,7 @@ app.get("/api/news", async (req, res) => {
     const apikey = process.env.VITE_NEWS_API_KEY;
     const URL = `https://newsapi.org/v2/top-headlines?country=in&pageSize=3&apikey=${apikey}`;
     const responce = await fetch(URL);
-    if (!response.ok) {
+    if (!responce.ok) {
       return res.status(response.status).json({
         error: response.statusText,
       });
