@@ -8,7 +8,7 @@ import {
 import Signup from "./pages/Signup";
 import SelectCatagory from "./pages/SelectCatagory";
 import Dashboard from "./pages/Dashboard";
-import { weatherLoader } from "./pages/Dashboard";
+import { Loaction } from "./pages/Dashboard";
 import ErrorBoundary from "./pages/ErrorBoundary";
 const Router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,9 +18,10 @@ const Router = createBrowserRouter(
       <Route
         path='dashboard'
         errorElement={<ErrorBoundary />}
-        loader={weatherLoader}
+        loader={Loaction}
         element={<Dashboard />}
       />
+      <Route path='/browse' element={<Browse />} />
     </Route>
   )
 );

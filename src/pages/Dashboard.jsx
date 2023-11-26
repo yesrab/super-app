@@ -6,48 +6,34 @@ import Weather from "../components/Weather";
 import CountDown from "../components/CountDown";
 import Everest from "../components/Everest";
 import { useLoaderData } from "react-router-dom";
-const key = import.meta.env.VITE_WEATHER_API_KEY;
-const URL = `http://api.weatherapi.com/v1/current.json?key=${key}`;
-const ULR = "/api/weather";
-export const weatherLoader = () => {
-  try {
-    return new Promise((resolve, reject) => {
-      const getWeather = async (coOrdinates) => {
-        const location = `&q=${coOrdinates.coords.latitude},${coOrdinates.coords.longitude}&aqi=no`;
-        const location2 = `?q=${coOrdinates.coords.latitude},${coOrdinates.coords.longitude}`;
-        const responce = await fetch(ULR + location2);
-
-        if (!responce.ok) {
-          const error = {
-            message: "Loading data from the server failed",
-            statusText: responce.statusText,
-            status: responce.status,
-          };
-          reject(error);
-        }
-        const data = await responce.json();
-        const weatherObj = {
-          localtime: data.location.localtime,
-          condition: data.current.condition,
-          temp_c: data.current.temp_c,
-          pressure_mb: data.current.pressure_mb,
-          wind_kph: data.current.wind_kph,
-          humidity: data.current.humidity,
-        };
-        resolve(weatherObj);
-      };
-      const errorCallback = (error) => {
-        reject(error);
-      };
-
-      navigator.geolocation.getCurrentPosition(getWeather, errorCallback);
-    });
-  } catch (err) {
-    return err;
-  }
+export const Loaction = async () => {
+  return new Promise((resolve, reject) => {
+    const onscusses = (coOrdinates) => {
+      const locaton = `?q=${coOrdinates.coords.latitude},${coOrdinates.coords.longitude}`;
+      resolve(locaton);
+    };
+    const onfail = (error) => {
+      reject(error);
+    };
+    navigator.geolocation.getCurrentPosition(onscusses, onfail);
+  });
 };
 function Dashboard() {
-  const weatherData = useLoaderData();
+  function time() {
+    const currentDate = new Date();
+    const day = String(currentDate.getDate()).padStart(2, "0");
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const year = currentDate.getFullYear();
+    let hours = currentDate.getHours();
+    const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    const formattedDateTime = `${day}-${month}-${year} ${hours}:${minutes} ${ampm}`;
+    return formattedDateTime;
+  }
+
+  const locationData = useLoaderData();
   return (
     <div className='dashBoardPage'>
       <div className='mainPage'>
@@ -55,7 +41,7 @@ function Dashboard() {
           <Userinfo />
         </div>
         <div className='div2'>
-          <Weather weatherData={weatherData} />
+          <Weather time={time} locationData={locationData} />
         </div>
         <div className='div3'>
           <CountDown />
@@ -64,10 +50,12 @@ function Dashboard() {
           <Notes />
         </div>
         <div className='div5'>
-          <Everest />
+          <Everest time={time} />
         </div>
       </div>
-      <footer className='dashBoardFooter'>this is footer element</footer>
+      <footer className='nextPageFooter'>
+        <button>Browse</button>
+      </footer>
     </div>
   );
 }

@@ -1,9 +1,12 @@
 .dashBoardPage {
   height: 90%;
+  background-color: black;
 }
 .mainPage {
   height: 100%;
-  padding: 1em;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
