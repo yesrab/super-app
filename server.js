@@ -21,15 +21,15 @@ app.get("/api/weather", async (req, res) => {
     }
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`;
     const response = await fetch(apiUrl);
-    if (response.status !== 200) {
+    if (!response.ok) {
       return res.status(response.status).json({
-        response,
+        error: response.statusText,
       });
     }
     const data = await response.json();
     res.json(data);
   } catch (error) {
-    console.error("error getting weather data ", error);
+    console.error("Error getting weather data:", error);
     res.status(500).json({
       error: "Internal Server Error",
     });
@@ -41,16 +41,16 @@ app.get("/api/news", async (req, res) => {
     const apikey = process.env.VITE_NEWS_API_KEY;
     const URL = `https://newsapi.org/v2/top-headlines?country=in&pageSize=3&apikey=${apikey}`;
     const responce = await fetch(URL);
-    if (responce.status !== 200) {
+    if (!response.ok) {
       return res.status(response.status).json({
-        response,
+        error: response.statusText,
       });
     }
     const data = await responce.json();
 
     res.json(data);
-  } catch (err) {
-    console.error("error getting news data ", err);
+  } catch (error) {
+    console.error("Error getting news data:", error);
     res.status(500).json({
       error: "Internal Server Error",
     });

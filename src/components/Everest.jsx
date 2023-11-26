@@ -22,7 +22,7 @@ function Everest({ time }) {
 
   const myStyle = {
     backgroundImage: `url(${
-      isLoading ? newsImage : isError ? newsImage : news.articles[1].urlToImage
+      isLoading ? newsImage : isError ? newsImage : news.articles[0].urlToImage
     })`,
     overflow: "hidden",
   };
@@ -45,12 +45,12 @@ function Everest({ time }) {
     <div className='everest'>
       <div referrerpolicy='no-referrer' style={myStyle} className='newsImage'>
         <div className='newsTitle'>
-          <p>{isLoading ? "Loading..." : isError ? "Error.." : news.articles[1].title}</p>
+          <p>{isLoading ? "Loading..." : isError ? "Error.." : news.articles[0].title}</p>
           <p>{currentTime}</p>
         </div>
       </div>
       <div className='newsContent'>
-        {isLoading ? "Loading...." : isError ? "Error..." : news.articles[1].content}
+        {isLoading ? "Loading...." : isError ? "Error..." : news.articles[0].content}
       </div>
     </div>
   );
