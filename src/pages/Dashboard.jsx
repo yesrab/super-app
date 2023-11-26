@@ -5,7 +5,7 @@ import Notes from "../components/Notes";
 import Weather from "../components/Weather";
 import CountDown from "../components/CountDown";
 import Everest from "../components/Everest";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 export const Loaction = async () => {
   return new Promise((resolve, reject) => {
     const onscusses = (coOrdinates) => {
@@ -29,11 +29,15 @@ function Dashboard() {
     const ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
     hours = hours ? hours : 12;
-    const formattedDateTime = `${day}-${month}-${year} ${hours}:${minutes} ${ampm}`;
+    const formattedDateTime = `${day}-${month}-${year} | ${hours}:${minutes} ${ampm}`;
     return formattedDateTime;
   }
-
   const locationData = useLoaderData();
+
+  const nav = useNavigate();
+  function navtobrowse() {
+    nav("../browse");
+  }
   return (
     <div className='dashBoardPage'>
       <div className='mainPage'>
@@ -54,7 +58,7 @@ function Dashboard() {
         </div>
       </div>
       <footer className='nextPageFooter'>
-        <button>Browse</button>
+        <button onClick={navtobrowse}>Browse</button>
       </footer>
     </div>
   );

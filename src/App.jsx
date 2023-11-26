@@ -10,6 +10,7 @@ import SelectCatagory from "./pages/SelectCatagory";
 import Dashboard from "./pages/Dashboard";
 import { Loaction } from "./pages/Dashboard";
 import ErrorBoundary from "./pages/ErrorBoundary";
+import Browse from "./pages/Browse";
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/'>
