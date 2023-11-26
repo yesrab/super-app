@@ -21,11 +21,12 @@ app.get("/api/weather", async (req, res) => {
     }
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`;
     const response = await fetch(apiUrl);
-    // if (!response.ok) {
-    //   return res.status(response.status).json({
-    //     error: response.statusText,
-    //   });
-    // }
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: response.statusText,
+      });
+    }
+
     const data = await response.json();
     res.json(data);
   } catch (error) {
