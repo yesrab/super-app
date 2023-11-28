@@ -2,7 +2,7 @@ const PORT = 8000;
 import cors from "cors";
 import express, { response } from "express";
 import fetch from "node-fetch";
-const dotenv = import("dotenv/config");
+const dotenv = await import("dotenv/config");
 const app = express();
 
 const allowedOrigins = process.env.VITE_CORS_ALLOWED_ORIGINS;
