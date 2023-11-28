@@ -7,13 +7,18 @@ const app = express();
 
 const allowedOrigins = process.env.VITE_CORS_ALLOWED_ORIGINS;
 
-app.use(cors({ origin: allowedOrigins }));
+var corsOptions = {
+  origin: allowedOrigins,
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+// app.use(cors({ origin: allowedOrigins }));
 
 app.get("/api", (req, res) => {
   res.json("Hi this is internal SERVER");
 });
 
-app.get("/api/weather", async (req, res) => {
+app.get("/api/weather", cors(corsOptions), async (req, res) => {
   try {
     const apiKey = process.env.VITE_WEATHER_API_KEY;
     const location = req.query.q;
@@ -38,7 +43,7 @@ app.get("/api/weather", async (req, res) => {
   }
 });
 
-app.get("/api/news", async (req, res) => {
+app.get("/api/news", cors(corsOptions), async (req, res) => {
   try {
     const apikey = process.env.VITE_NEWS_API_KEY;
     const URL = `https://newsapi.org/v2/top-headlines?country=in&pageSize=3&apikey=${apikey}`;
@@ -59,7 +64,7 @@ app.get("/api/news", async (req, res) => {
   }
 });
 
-app.get("/api/movie", async (req, res) => {
+app.get("/api/movie", cors(corsOptions), async (req, res) => {
   const apiKey = process.env.VITE_TMDB_API_KEY;
   const genres = req.query.g;
   if (!genres) {
