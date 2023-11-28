@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import exampleImage from "../assets/exampleMovie.png";
 import { useQuery } from "@tanstack/react-query";
 function Genres({ genre, genreID }) {
@@ -12,11 +12,6 @@ function Genres({ genre, genreID }) {
 
     return data;
   }
-
-  useEffect(() => {
-    console.log(genreID);
-    console.log(movies?.results);
-  }, []);
 
   return (
     <div className='movieGalaryContainer'>
