@@ -16,7 +16,7 @@ var corsOptions = {
 // app.use(cors({ origin: allowedOrigins }));
 
 app.get("/api", (req, res) => {
-  res.json("Hi this is internal SERVER");
+  res.json({ welcome: "Hi this is internal SERVER" });
 });
 
 app.get("/api/weather", cors(corsOptions), async (req, res) => {
