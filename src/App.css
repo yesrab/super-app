@@ -12,6 +12,7 @@ body {
 body {
   min-height: 100%;
   font-family: "DM Sans", sans-serif;
+  background-color: black;
 }
 
 .signupPage {

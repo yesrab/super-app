@@ -10,17 +10,17 @@ import fiction from "../assets/catagoryImages/fiction.png";
 
 const catagoryObj = [
   {
-    id: 1,
+    id: 28,
     title: "Action",
     image: action,
   },
-  { id: 2, title: "Drama", image: drama },
-  { id: 3, title: "Romance", image: romance },
-  { id: 4, title: "Thriller", image: thriller },
-  { id: 5, title: "Western", image: western },
-  { id: 6, title: "Horror", image: horror },
-  { id: 7, title: "Fantacy", image: fantacy },
-  { id: 8, title: "Music", image: music },
-  { id: 9, title: "Fiction", image: fiction },
+  { id: 18, title: "Drama", image: drama },
+  { id: 10749, title: "Romance", image: romance },
+  { id: 53, title: "Thriller", image: thriller },
+  { id: 37, title: "Western", image: western },
+  { id: 27, title: "Horror", image: horror },
+  { id: 14, title: "Fantacy", image: fantacy },
+  { id: 10402, title: "Music", image: music },
+  { id: 878, title: "Fiction", image: fiction },
 ];
 export default catagoryObj;

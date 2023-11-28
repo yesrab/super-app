@@ -20,13 +20,6 @@ function Everest({ time }) {
     return data;
   }
 
-  const myStyle = {
-    backgroundImage: `url(${
-      isLoading ? newsImage : isError ? newsImage : news.articles[0].urlToImage
-    })`,
-    overflow: "hidden",
-  };
-
   let myinterval = null;
   useEffect(() => {
     if (!myinterval) {
@@ -41,16 +34,30 @@ function Everest({ time }) {
     };
   }, []);
 
+  const validIndex =
+    news &&
+    news.articles.findIndex((article) => article.title && article.content && article.urlToImage);
+
+  // Use the valid index or default to the first element
+  const selectedArticle = news ? news.articles[validIndex >= 0 ? validIndex : 0] : null;
+
+  const myStyle = {
+    backgroundImage: `url(${
+      isLoading ? newsImage : isError ? newsImage : selectedArticle.urlToImage
+    })`,
+    overflow: "hidden",
+  };
+
   return (
     <div className='everest'>
-      <div referrerpolicy='no-referrer' style={myStyle} className='newsImage'>
+      <div referrerPolicy='no-referrer' style={myStyle} className='newsImage'>
         <div className='newsTitle'>
-          <p>{isLoading ? "Loading..." : isError ? "Error.." : news.articles[0].title}</p>
+          <p>{isLoading ? "Loading..." : isError ? "Error.." : selectedArticle.title}</p>
           <p>{currentTime}</p>
         </div>
       </div>
       <div className='newsContent'>
-        {isLoading ? "Loading...." : isError ? "Error..." : news.articles[0].content}
+        {isLoading ? "Loading...." : isError ? "Error..." : selectedArticle.content}
       </div>
     </div>
   );

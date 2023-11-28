@@ -1,0 +1,51 @@
+.browsePage {
+  height: 100%;
+  background-color: black;
+}
+
+header {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+}
+.entertainmentContent {
+  height: 80%;
+  padding: 2em;
+}
+.LOGO {
+  display: inline;
+  font-family: "Single Day";
+  margin-left: 1.5em;
+  color: hsla(121, 59%, 65%, 1);
+}
+.ent {
+  margin: 0;
+  color: white;
+}
+.profileIcon {
+  height: 80%;
+  margin-right: 1.5em;
+}
+.movieGalaryContainer {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+}
+.movieGalaryContainer > p {
+  color: hsla(0, 0%, 53%, 1);
+  padding: 0.5em;
+}
+.galary {
+  display: flex;
+  justify-content: space-between;
+  height: 90%;
+  overflow-x: auto;
+  gap: 1em;
+}
+.galary img {
+  height: 80%;
+  object-fit: fill;
+  border-radius: 1em;
+}

@@ -3,7 +3,6 @@ import cors from "cors";
 import express, { response } from "express";
 import fetch from "node-fetch";
 const dotenv = import("dotenv/config");
-
 const app = express();
 
 app.use(cors());
@@ -17,7 +16,7 @@ app.get("/api/weather", async (req, res) => {
     const apiKey = process.env.VITE_WEATHER_API_KEY;
     const location = req.query.q;
     if (!location) {
-      return res.json("lol");
+      return res.status(403).json("Error No Location provided");
     }
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`;
     const response = await fetch(apiUrl);
@@ -56,6 +55,24 @@ app.get("/api/news", async (req, res) => {
       error: "Internal Server Error",
     });
   }
+});
+
+app.get("/api/movie", async (req, res) => {
+  const apiKey = process.env.VITE_TMDB_API_KEY;
+  const genres = req.query.g;
+  if (!genres) {
+    return res.status(403).json({ error: "No genres Provided" });
+  }
+
+  const URL = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc&with_genres=${genres}`;
+  const responce = await fetch(URL);
+  if (!responce.ok) {
+    return res.status(response.status).json({
+      error: response.statusText,
+    });
+  }
+  const data = await responce.json();
+  return res.json(data);
 });
 
 app.listen(PORT, () => console.log("server is running at port", PORT));
