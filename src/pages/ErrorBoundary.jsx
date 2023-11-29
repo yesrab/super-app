@@ -3,7 +3,12 @@ import { useRouteError } from "react-router-dom";
 function ErrorBoundary() {
   let error = useRouteError();
   console.log(error);
-  return <h1>lmao error</h1>;
+  return (
+    <div className='errorpage'>
+      <h1>Please Allow location permission</h1>
+      <p> Error : {error.message}</p>
+    </div>
+  );
 }
 
 export default ErrorBoundary;

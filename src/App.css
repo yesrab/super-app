@@ -150,4 +150,14 @@ body {
 .green {
   color: hsla(121, 59%, 65%, 1);
 }
+.errorpage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 2px solid white;
+}
 
