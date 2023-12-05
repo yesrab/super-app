@@ -27,29 +27,6 @@ function SelectCatagory() {
       return;
     }
   };
-  // useEffect(() => {
-  //   const controller = new AbortController();
-  //   const signal = controller.signal;
-  //   console.log(signal);
-  //   const getData = async () => {
-  //     const url = "https://unogs-unogs-v1.p.rapidapi.com/search/titles?order_by=date&type=movie";
-  //     const options = {
-  //       method: "GET",
-  //       headers: {
-  //         "X-RapidAPI-Key": "fa1219212emsh8093de4f13a0558p127b81jsn717a77f17358",
-  //         "X-RapidAPI-Host": "unogs-unogs-v1.p.rapidapi.com",
-  //       },
-  //       signal,
-  //     };
-  //     const responce = await fetch(url, options);
-  //     const data = responce.json();
-  //     console.log(data);
-  //   };
-  //   getData();
-  //   return () => {
-  //     controller.abort();
-  //   };
-  // }, []);
 
   return (
     <div className='catagoryContainer'>
